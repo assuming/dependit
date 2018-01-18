@@ -1,0 +1,111 @@
+{
+  "path": "/Users/ohmyxm/code/dependit/test/testfiles/b.js",
+  "dependencies": [
+    {
+      "source": "fs",
+      "imported": [
+        {
+          "local": "fs",
+          "type": "ImportDefault"
+        }
+      ]
+    },
+    {
+      "source": "path",
+      "imported": [
+        {
+          "local": "path",
+          "type": "ImportDefault"
+        }
+      ]
+    },
+    {
+      "source": "gulp",
+      "imported": [
+        {
+          "local": "gulp",
+          "type": "ImportDefault"
+        }
+      ]
+    },
+    {
+      "source": "@dp/gulp-vuesplit",
+      "imported": [
+        {
+          "local": "splitVue",
+          "type": "ImportDefault"
+        }
+      ]
+    },
+    {
+      "source": "gulp-ignore",
+      "imported": [
+        {
+          "local": "ignore",
+          "type": "ImportDefault"
+        }
+      ]
+    },
+    {
+      "source": "gulp-typescript",
+      "imported": [
+        {
+          "local": "ts",
+          "type": "ImportDefault"
+        }
+      ]
+    },
+    {
+      "source": "emp",
+      "imported": [
+        {
+          "local": "emp",
+          "type": "Import"
+        }
+      ]
+    },
+    {
+      "source": "typhonjs-escomplex",
+      "imported": [
+        {
+          "local": "escomplex",
+          "type": "ImportDefault"
+        }
+      ]
+    },
+    {
+      "source": "../utils/utils.js",
+      "imported": [
+        {
+          "local": "convertToGlob",
+          "type": "Import"
+        },
+        {
+          "local": "globToFile",
+          "type": "Import"
+        },
+        {
+          "local": "getFileName",
+          "type": "Import"
+        },
+        {
+          "local": "regular",
+          "type": "Import"
+        }
+      ]
+    },
+    {
+      "source": "../constants/index.js",
+      "imported": [
+        {
+          "local": "VUE_DIR",
+          "type": "Import"
+        },
+        {
+          "local": "TS_DIR",
+          "type": "Import"
+        }
+      ]
+    }
+  ]
+}

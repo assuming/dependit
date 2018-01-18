@@ -29,13 +29,18 @@ interface Result {
 
 interface Dependency {
   source: string,
-  imported: string,
-  local: Array<string>,
+  imported: Array<ImportedItem>
+}
+
+interface ImportedItem {
+  value: string,
+  local: string,
   type: ImportType
 }
 
 enum ImportType {
-  default = 'default',
-  import = 'import'
+  default = 'ImportDefault',
+  import = 'Import',
+  namespace = 'ImportNamespace'
 }
 ```
