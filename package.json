@@ -1,0 +1,29 @@
+{
+  "name": "dependit",
+  "version": "1.0.0",
+  "description": "Find the connection inside your project files",
+  "main": "index.js",
+  "scripts": {
+    "dev": "babel ./src --watch --out-dir build",
+    "build": "babel ./src --out-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/assuming/dependit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/assuming/dependit/issues"
+  },
+  "homepage": "https://github.com/assuming/dependit#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "dependencies": {
+    "babylon": "^7.0.0-beta.38"
+  }
+}

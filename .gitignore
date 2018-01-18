@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# custom
+.DS_Store
+test/testfiles
