@@ -2,7 +2,7 @@
   "name": "dependit",
   "version": "0.0.1",
   "description": "Find the connection inside your project files",
-  "main": "src/index.js",
+  "main": " build/index.js",
   "scripts": {
     "dev": "babel ./src --watch --out-dir build",
     "build": "babel ./src --out-dir build",
