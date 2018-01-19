@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { parse } from 'babylon'
+import { isVueFile, splitVue } from './utils.js'
 import { 
   IMPORT_SPECIFIER,
   IMPORT_DEFAULT_SPECIFIER,
@@ -11,16 +12,25 @@ import {
 
 
 export default function getDependency(filepath) {
-  const sourceCode = fs.readFileSync(filepath, 'utf8')
+  let sourceCode = fs.readFileSync(filepath, 'utf8')
 
-  const ast = parse(sourceCode, {
-    sourceType: 'module',
-    plugins: [
-      'jsx',
-      'typescript',
-      'objectRestSpread'
-    ]
-  })
+  if (isVueFile(sourceCode)) {
+    sourceCode = splitVue(sourceCode)
+  }
+
+  let ast = {}
+  try {
+    ast = parse(sourceCode, {
+      sourceType: 'module',
+      plugins: [
+        'jsx',
+        'typescript',
+        'objectRestSpread'
+      ]
+    })
+  } catch (err) {
+    throw new Error('AST parse error. Only .js || .ts || .jsx || .vue types are supported')
+  }
 
   const dependencies = ast.program.body
     .filter(item => item.type === IMPORT_DECLARATION)

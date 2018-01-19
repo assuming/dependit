@@ -59,4 +59,5 @@ typings/
 
 # custom
 .DS_Store
+test/test.json
 test/testfiles

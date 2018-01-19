@@ -2,6 +2,12 @@
 
 Parse all the `import`ed modules inside the file(Only **ES Modules** supported)
 
+To install:
+
+```shell
+npm install dependit -S
+```
+
 ## Usage
 
 ```js
@@ -44,3 +50,12 @@ enum ImportType {
   namespace = 'ImportNamespace'
 }
 ```
+
+## Supported file types
+
+Currently only 4 types are supported:
+
+- `.js`
+- `.jsx`
+- `.ts`
+- `.vue`

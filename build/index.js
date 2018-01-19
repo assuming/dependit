@@ -15,17 +15,28 @@ var _path2 = _interopRequireDefault(_path);
 
 var _babylon = require('babylon');
 
+var _utils = require('./utils.js');
+
 var _constants = require('./constants.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getDependency(filepath) {
-  const sourceCode = _fs2.default.readFileSync(filepath, 'utf8');
+  let sourceCode = _fs2.default.readFileSync(filepath, 'utf8');
 
-  const ast = (0, _babylon.parse)(sourceCode, {
-    sourceType: 'module',
-    plugins: ['jsx', 'typescript', 'objectRestSpread']
-  });
+  if ((0, _utils.isVueFile)(sourceCode)) {
+    sourceCode = (0, _utils.splitVue)(sourceCode);
+  }
+
+  let ast = {};
+  try {
+    ast = (0, _babylon.parse)(sourceCode, {
+      sourceType: 'module',
+      plugins: ['jsx', 'typescript', 'objectRestSpread']
+    });
+  } catch (err) {
+    throw new Error('AST parse error. Only .js || .ts || .jsx || .vue types are supported');
+  }
 
   const dependencies = ast.program.body.filter(item => item.type === _constants.IMPORT_DECLARATION).map(item => {
     const imported = item.specifiers.map(unit => {
