@@ -13,6 +13,13 @@
     "url": "git+https://github.com/assuming/dependit.git"
   },
   "author": "",
+  "keywords": [
+    "module",
+    "dependencies",
+    "dependency",
+    "ast",
+    "import"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/assuming/dependit/issues"
