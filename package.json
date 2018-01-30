@@ -1,6 +1,6 @@
 {
   "name": "dependit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Find the connection inside your project files",
   "main": "./build/index.js",
   "scripts": {
