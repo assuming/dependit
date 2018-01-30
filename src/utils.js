@@ -1,8 +1,7 @@
 import { parseComponent } from 'vue-template-compiler'
 
-export function isVueFile(text) {
-  const templateRegex = /<\s*template\s*>([^]*)<\/\s*template\s*>/
-  return templateRegex.test(text)
+export function isVueFile(filepath) {
+  return filepath.match(/.*vue$/)
 }
 
 export function splitVue(text) {

@@ -14,7 +14,7 @@ import {
 export default function getDependency(filepath) {
   let sourceCode = fs.readFileSync(filepath, 'utf8')
 
-  if (isVueFile(sourceCode)) {
+  if (isVueFile(filepath)) {
     sourceCode = splitVue(sourceCode)
   }
 

@@ -24,7 +24,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function getDependency(filepath) {
   let sourceCode = _fs2.default.readFileSync(filepath, 'utf8');
 
-  if ((0, _utils.isVueFile)(sourceCode)) {
+  if ((0, _utils.isVueFile)(filepath)) {
     sourceCode = (0, _utils.splitVue)(sourceCode);
   }
 

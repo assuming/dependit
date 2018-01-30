@@ -8,9 +8,8 @@ exports.splitVue = splitVue;
 
 var _vueTemplateCompiler = require('vue-template-compiler');
 
-function isVueFile(text) {
-  const templateRegex = /<\s*template\s*>([^]*)<\/\s*template\s*>/;
-  return templateRegex.test(text);
+function isVueFile(filepath) {
+  return filepath.match(/.*vue$/);
 }
 
 function splitVue(text) {
