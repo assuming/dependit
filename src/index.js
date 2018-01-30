@@ -18,19 +18,21 @@ export default function getDependency(filepath) {
     sourceCode = splitVue(sourceCode)
   }
 
-  let ast = {}
-  try {
-    ast = parse(sourceCode, {
-      sourceType: 'module',
-      plugins: [
-        'jsx',
-        'typescript',
-        'objectRestSpread'
-      ]
-    })
-  } catch (err) {
-    throw new Error('AST parse error. Only .js || .ts || .jsx || .vue types are supported')
-  }
+  const ast = parse(sourceCode, {
+    sourceType: 'module',
+    plugins: [
+      'jsx',
+      'typescript',
+      'classProperties',
+      'objectRestSpread',
+      'decorators2',
+      'exportDefaultFrom',
+      'exportNamespaceFrom',
+      'asyncGenerators',
+      'dynamicImport',
+      'optionalChaining'
+    ]
+  })
 
   const dependencies = ast.program.body
     .filter(item => item.type === IMPORT_DECLARATION)

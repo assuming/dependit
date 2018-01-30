@@ -28,15 +28,10 @@ function getDependency(filepath) {
     sourceCode = (0, _utils.splitVue)(sourceCode);
   }
 
-  let ast = {};
-  try {
-    ast = (0, _babylon.parse)(sourceCode, {
-      sourceType: 'module',
-      plugins: ['jsx', 'typescript', 'objectRestSpread']
-    });
-  } catch (err) {
-    throw new Error('AST parse error. Only .js || .ts || .jsx || .vue types are supported');
-  }
+  const ast = (0, _babylon.parse)(sourceCode, {
+    sourceType: 'module',
+    plugins: ['jsx', 'typescript', 'classProperties', 'objectRestSpread', 'decorators2', 'exportDefaultFrom', 'exportNamespaceFrom', 'asyncGenerators', 'dynamicImport', 'optionalChaining']
+  });
 
   const dependencies = ast.program.body.filter(item => item.type === _constants.IMPORT_DECLARATION).map(item => {
     const imported = item.specifiers.map(unit => {
